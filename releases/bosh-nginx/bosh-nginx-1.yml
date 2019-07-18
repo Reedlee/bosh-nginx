@@ -1,0 +1,17 @@
+name: bosh-nginx
+version: "1"
+commit_hash: 33fa7ca
+uncommitted_changes: false
+jobs:
+- name: nginx
+  version: efea04f09e60f755b3e0744a16762d3b37cf7d457777842c7bbadb8d4308589b
+  fingerprint: efea04f09e60f755b3e0744a16762d3b37cf7d457777842c7bbadb8d4308589b
+  sha1: sha256:46b8cd07377f6d68704d61174e15f2dc8ce769631021d9c08cc3d572763e62cb
+  packages:
+  - nginx
+packages:
+- name: nginx
+  version: ea63fc4e8ffa8dc177169a4b009564ae1123eb69087b758348da7deccab9eadc
+  fingerprint: ea63fc4e8ffa8dc177169a4b009564ae1123eb69087b758348da7deccab9eadc
+  sha1: sha256:d0ca5e489cf5ba8f97b5eb79be75b68e3e058d89ae866b3dc18adb1f3fbb3232
+  dependencies: []
