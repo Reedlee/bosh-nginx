@@ -1,9 +1,28 @@
 ---
 name: nginx
 templates:
-  ctl.erb: bin/ctl
+    ctl.sh: bin/ctl
+    nginx.conf.erb: etc/nginx.conf
+    pre-start.erb: bin/pre-start
 
 packages:
 - nginx
 
-properties: {}
+properties:
+  nginx_conf:
+    description: 'The contents of nginx.conf, the primary configuration file'
+  pre_start:
+    default: '#!/bin/bash'
+    description: |
+        The contents of the pre-start script. This can be used to populate the
+        nginx server's document_root, e.g.
+        #!/bin/bash -ex
+        NGINX_DIR=/var/vcap/store/nginx
+        if [ ! -d $NGINX_DIR ]; then
+          mkdir -p $(basename $NGINX_DIR)
+          cd $(basename $NGINX_DIR)
+          curl -L https://github.com/cunnie/sslip.io/archive/v1.tar.gz |
+            tar xzf -
+          mv sslip.io-1 $NGINX_DIR
+          chown -R vcap:vcap $NGINX_DIR
+        fi
