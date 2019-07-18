@@ -1,1 +1,5 @@
-name: bosh-nginx
+final_name: bosh-nginx
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /tmp/bosh-nginx
